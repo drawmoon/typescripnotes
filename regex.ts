@@ -10,7 +10,8 @@ if (somePattern.test(text)) {
 // 将匹配到的分组的值替换为新的值
 const somePattern2 = /<[^>]*=(?<stain>3D)+\"\S+\"\s*\/?>/g;
 
-const html = '<figure class=3D"image"><img src=3D"file:///C:/fake/image0.png"> <figcaption>3D图形</figcaption>';
+const html =
+  '<figure class=3D"image"><img src=3D"file:///C:/fake/image0.png"> <figcaption>3D图形</figcaption>';
 const rst = html.replace(somePattern2, (sub, stain) => {
   return sub.replace(stain, '');
 });

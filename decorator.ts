@@ -1,5 +1,5 @@
-// 方法装饰器，捕获异常的装饰器
-function errorCatch() {
+// 方法装饰器
+function catchErr() {
   return function (
     target: any,
     propertyKey: string,
@@ -16,13 +16,13 @@ function errorCatch() {
   };
 }
 
-class SomeDecoratorClass {
-  @errorCatch()
-  fn(): void {
-    console.log('fn');
-    throw new Error('error');
+class SomeClass {
+  @catchErr()
+  hi() {
+    console.log('Hello World!');
+    throw new Error('发送错误');
   }
 }
 
-const c = new SomeDecoratorClass();
-c.fn();
+const someClass = new SomeClass();
+someClass.hi();
