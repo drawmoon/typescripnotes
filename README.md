@@ -12,7 +12,7 @@
 
 ### Windows
 
-去 [官网](https://nodejs.org/) 下载对应的安装文件，然后安装。执行以下命令安装 TypeScript 编译器：
+去 [官网](https://nodejs.org/) 下载对应的 NodeJs 安装文件，然后安装。执行以下命令安装 TypeScript 编译器：
 
 ```bash
 npm install -g typescript
