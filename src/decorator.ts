@@ -1,3 +1,4 @@
+// 方法装饰器，捕获异常的装饰器
 function errorCatch() {
   return function (
     target: any,
@@ -15,7 +16,7 @@ function errorCatch() {
   };
 }
 
-class TestCatchError {
+class SomeDecoratorClass {
   @errorCatch()
   fn(): void {
     console.log('fn');
@@ -23,5 +24,5 @@ class TestCatchError {
   }
 }
 
-const c = new TestCatchError();
+const c = new SomeDecoratorClass();
 c.fn();
