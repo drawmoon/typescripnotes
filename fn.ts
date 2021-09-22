@@ -24,3 +24,12 @@ function someFn3(callback: <T>(id: T) => void): void {
 someFn3((id) => {
   console.log(`Hello ${id}!`);
 });
+
+// 闭包
+function someFn4() {
+  return function () {
+    console.log('Hello World!');
+  };
+}
+
+someFn4()();
