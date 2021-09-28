@@ -1,12 +1,15 @@
-interface Commodity {
+interface TableField {
   id: string;
   type: string;
+  filter: string;
 }
 
-const comms: Commodity[] = [];
-comms.push({ id: '1', type: 'chart' });
+const t1: TableField = {
+  id: '1',
+  type: 'Measure',
+  filter: 'price is not null',
+};
 
-const item = { id: '1', type: 'chart' };
+const t2: TableField = { ...t1, filter: undefined };
 
-const index = comms.indexOf(item);
-console.log(index); // -1
+console.log(t2);
