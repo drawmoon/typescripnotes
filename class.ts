@@ -5,9 +5,11 @@ interface User {
 
 export class UserService {
   getUser(id: string);
+
   getUser(options: (users: User[]) => User);
-  getUser(id: string | ((users: User[]) => User), callback?: () => void) {
-    console.log(id, callback);
+
+  getUser(id: string | ((users: User[]) => User)) {
+    console.log(id);
   }
 }
 
