@@ -1,9 +1,11 @@
+// 基础类型判断
 const n = 1;
 const s = 'abc';
 
 console.log(typeof n === 'number'); // true
 console.log(typeof s === 'string'); // true
 
+// 对象类型判断
 class Foo {
   fly() {
     console.log('fly');
@@ -24,11 +26,11 @@ console.log(f instanceof Foo, b instanceof Bar); // true, true
 
 function isFoo(o: Foo | Bar) {
   console.log(o instanceof Foo);
-  console.log('fly' in o);
 }
 
-isFoo(f); // true, true
+isFoo(f); // true
 
+// 接口类型判断
 interface Foobar {
   foo: Foo;
   bar: Bar;
@@ -39,16 +41,23 @@ const foobar: Foobar = {
   bar: { run: () => console.log('run') },
 };
 
-isFoo(foobar.foo); // false, true
+isFoo(foobar.foo); // false
 
+function isBar(o: Bar) {
+  console.log('run' in o);
+}
+
+isBar(foobar.bar); // true
+
+// 判断是否为函数
 type Task = () => void;
 
-function isTaskFunction(data: string | Task): data is Task {
+function isFunction(data: string | Task): data is Task {
   return typeof data === 'function';
 }
 
 function handle(data: string | Task) {
-  if (isTaskFunction(data)) {
+  if (isFunction(data)) {
     (data as Task)();
   } else {
     console.log(data);
