@@ -1,11 +1,15 @@
-// 基础类型判断
+/*
+  基础类型判断
+ */
 const n = 1;
 const s = 'abc';
 
 console.log(typeof n === 'number'); // true
 console.log(typeof s === 'string'); // true
 
-// 对象类型判断
+/*
+  对象类型判断
+ */
 class Foo {
   fly() {
     console.log('fly');
@@ -30,7 +34,9 @@ function isFoo(o: Foo | Bar) {
 
 isFoo(f); // true
 
-// 接口类型判断
+/*
+  接口类型判断
+ */
 interface Foobar {
   foo: Foo;
   bar: Bar;
@@ -49,7 +55,9 @@ function isBar(o: Bar) {
 
 isBar(foobar.bar); // true
 
-// 判断是否为函数
+/*
+  判断是否为函数
+ */
 type Task = () => void;
 
 function isFunction(data: string | Task): data is Task {

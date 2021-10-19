@@ -1,46 +1,53 @@
-// 方法重载
-interface User {
-  id: string;
+/*
+  类的声明
+ */
+class Store {
+  constructor(private name: string) {}
+
+  getName() {
+    return this.name;
+  }
 }
 
-export class UserService {
-  getUser(id: string);
+/*
+  类的继承与函数重写
+ */
+class PhysicalStore extends Store {
+  getName(): string {
+    console.log('PhysicalStore getName');
+    return super.getName();
+  }
+}
 
-  getUser(options: (users: User[]) => User);
+const physicalStore = new PhysicalStore('Game World');
+physicalStore.getName();
 
-  getUser(id: string | ((users: User[]) => User)) {
-    console.log(id);
+/*
+  类的继承之构造函数
+ */
+class CloudStore extends Store {
+  constructor(name: string, public tag: string) {
+    super(name);
+  }
+}
+
+const cloudStore = new CloudStore('Steam', 'lib');
+cloudStore.getName();
+console.log(cloudStore.tag);
+
+/*
+  函数重载
+ */
+class UserService {
+  getUser(id: number);
+
+  getUser(name: string);
+
+  getUser(u: number | string) {
+    console.log(u);
   }
 }
 
 const userService = new UserService();
-userService.getUser('1');
-userService.getUser((us) => us[0]);
-
-// 类继承
-export class Foo {
-  constructor(val: string) {
-    console.log(val);
-  }
-
-  public print() {
-    console.log('Foo hello');
-  }
-}
-
-export class Bar extends Foo {
-  constructor() {
-    super('Bar ctor param');
-  }
-
-  public print() {
-    console.log('Bar hello');
-    super.print();
-  }
-}
-
-const foo = new Foo('Foo ctor param');
-foo.print();
-
-const bar = new Bar();
-bar.print();
+userService.getUser(1);
+userService.getUser('George');

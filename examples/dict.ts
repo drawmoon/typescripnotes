@@ -1,3 +1,6 @@
+/*
+  字典的声明
+ */
 const someDict: Record<string, string> = {
   ['a']: '1',
   ['b']: '2',
@@ -6,19 +9,27 @@ const someDict: Record<string, string> = {
 
 console.log(someDict);
 
-// 获取字典的键和值
+/*
+  返回字典的键、值
+ */
 console.log(Object.keys(someDict));
 console.log(Object.values(someDict));
 
-// 更改指定键的值
+/*
+  更改指定键的值
+ */
 someDict['a'] = '100';
 console.log(someDict);
 
-// 删除字典指定索引处的元素
+/*
+  删除字典指定索引处的元素
+ */
 delete someDict[0];
 console.log(someDict);
 
-// 键值对映射
+/*
+  键值对映射
+ */
 const someMap = new Map();
 someMap.set('a', '1');
 someMap.set('b', '2');

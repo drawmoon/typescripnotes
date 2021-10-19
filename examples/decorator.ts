@@ -1,4 +1,6 @@
-// 方法装饰器
+/*
+  方法装饰器
+ */
 function catchErr() {
   return function (
     target: any,
@@ -18,11 +20,11 @@ function catchErr() {
 
 class SomeClass {
   @catchErr()
-  hi() {
+  hello() {
     console.log('Hello World!');
     throw new Error('发送错误');
   }
 }
 
 const someClass = new SomeClass();
-someClass.hi();
+someClass.hello();

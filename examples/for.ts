@@ -1,16 +1,22 @@
 const words = ['Hello', 'World'];
 
-console.log('for:');
+/*
+  for 语法
+ */
 for (let i = 0; i < words.length; i++) {
-    console.log(i, words[i]);
+  console.log(i, words[i]);
 }
 
-console.log('forin:');
+/*
+  for-in 语法
+ */
 for (const wordsKey in words) {
-    console.log(wordsKey, words[wordsKey]);
+  console.log(wordsKey, words[wordsKey]);
 }
 
-console.log('forof:');
+/*
+  for-of 语法
+ */
 for (const word of words) {
-    console.log(word);
+  console.log(word);
 }
