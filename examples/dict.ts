@@ -16,6 +16,11 @@ console.log(Object.keys(someDict));
 console.log(Object.values(someDict));
 
 /*
+  返回字典的指定键、索引的值
+ */
+console.log(someDict['a']);
+
+/*
   更改指定键的值
  */
 someDict['a'] = '100';
@@ -24,7 +29,7 @@ console.log(someDict);
 /*
   删除字典指定索引处的元素
  */
-delete someDict[0];
+delete someDict['a'];
 console.log(someDict);
 
 /*
