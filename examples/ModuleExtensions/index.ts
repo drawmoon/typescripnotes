@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import './express-extensions';
+import './express.extensions';
 
 import express = require('express');
 const app: express.Application = express();

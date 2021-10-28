@@ -139,7 +139,7 @@ declare module 'express' {
 }
 ```
 
-新建 `express-extensions.ts` 文件：
+新建 `express.extensions.ts` 文件：
 
 ```typescript
 import * as express from 'express';
