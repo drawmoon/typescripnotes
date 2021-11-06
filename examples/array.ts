@@ -41,6 +41,28 @@ const someNumberArr = [1, 1, 2, 2];
 console.log(Array.from(new Set(someNumberArr)));
 
 /*
+    排序
+ */
+let someNumberArr2 = [55, 1, 12, 7, 8];
+// 升序
+someNumberArr2 = someNumberArr2.sort((a, b) => {
+  return a > b ? 1 : -1;
+});
+console.log(someNumberArr2);
+// 降序
+someNumberArr2 = someNumberArr2.sort((a, b) => {
+  return a < b ? 1 : -1;
+});
+console.log(someNumberArr2);
+
+/*
+    反转数组
+ */
+
+const someNumberArr3 = [1, 2, 3, 4, 5];
+console.log(someNumberArr3.reverse());
+
+/*
     合并、并集、交集、差集
  */
 const someArr1 = [1, 2, 3];
