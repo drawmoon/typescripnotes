@@ -53,40 +53,124 @@ npm install -g npm-check
 
 ## 函数
 
+基本语法
+
+```typescript
+function someFn(): void {
+  // ...
+}
+```
+
+声明参数
+
+```typescript
+function someFn(args: string[], force: boolean): void {
+  // ...
+}
+```
+
+### 剩余参数
+
+```typescript
+function someFn(...args: string[]): void {
+  // ...
+}
+
+someFn('a1', 'a2', 'a3');
+```
+
 ### 匿名函数
+
+```typescript
+const someFn = function () {
+  console.log('Hello World!');
+};
+
+someFn();
+```
+
+### 箭头函数
+
+```typescript
+const someFn = () => {
+  console.log('Hello World!');
+};
+
+someFn();
+```
+
+箭头函数中的泛型参数
+
+```typescript
+const someFn = <T>(id: T) => {
+  // ...
+};
+```
+
+### 回调函数
 
 ```typescript
 function someFn(callback: () => void): void {
   callback();
 }
 
+function callbackFn() {
+  console.log('Hello World!');
+}
+someFn(callbackFn);
+```
+
+匿名回调函数
+
+```typescript
+someFn(function () {
+  console.log('Hello World!');
+})
+```
+
+箭头回调函数
+
+```typescript
 someFn(() => {
   console.log('Hello World!');
 });
 ```
 
-### 异步匿名函数
+#### 异步的回调函数
 
 ```typescript
-function someFn2(callback: () => Promise<void>): void {
-  callback().then();
+async function someFn(callback: () => Promise<void>): Promise<void> {
+  await callback();
 }
 
-someFn2(async () => {
+someFn(async () => {
   console.log('Hello World!');
 });
 ```
 
-### 泛型匿名函数
+#### 回调函数中的泛型参数
 
 ```typescript
-function someFn3(callback: <T>(id: T) => void): void {
+function someFn(callback: <T>(id: T) => void): void {
   callback(123);
 }
 
-someFn3((id) => {
-  console.log(`Hello ${id}!`);
+someFn((id) => {
+  console.log(`Id is ${id}!`);
 });
+```
+
+### 闭包
+
+```typescript
+function someFn() {
+  return function (msg: string) {
+    console.log(msg);
+  };
+}
+
+const msg = 'Hello World!';
+someFn()(msg);
 ```
 
 ## 为模块扩展属性与方法

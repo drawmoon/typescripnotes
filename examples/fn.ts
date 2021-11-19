@@ -1,43 +1,101 @@
 /*
+  基本语法
+ */
+function someFn(): void {
+  // ...
+}
+
+/*
+  声明参数
+ */
+function someFn2(args: string[], force: boolean): void {
+  // ...
+}
+
+/*
+  剩余参数
+ */
+function someFn3(...args: string[]): void {
+  // ...
+}
+
+someFn3('a1', 'a2', 'a3');
+
+/*
   匿名函数
  */
-function someFn(callback: () => void): void {
+const someFn4 = function () {
+  console.log('Hello World!');
+};
+
+someFn4();
+
+/*
+  箭头函数
+ */
+const someFn5 = () => {
+  console.log('Hello World!');
+};
+
+someFn5();
+
+// 箭头函数中的泛型参数
+const someFn6 = <T>(id: T) => {
+  // ...
+};
+
+/*
+  回调函数
+ */
+function someFn7(callback: () => void): void {
   callback();
 }
 
-someFn(() => {
+function callbackFn() {
+  console.log('Hello World!');
+}
+someFn7(callbackFn);
+
+// 匿名回调函数
+someFn7(function () {
+  console.log('Hello World!');
+})
+
+// 箭头回调函数
+someFn7(() => {
   console.log('Hello World!');
 });
 
 /*
-  异步匿名函数
+  异步的回调函数
  */
-function someFn2(callback: () => Promise<void>): void {
-  callback().then();
+async function someFn8(callback: () => Promise<void>): Promise<void> {
+  await callback();
 }
 
-someFn2(async () => {
+someFn8(async () => {
   console.log('Hello World!');
 });
 
 /*
-  泛型匿名函数
+  回调函数中的泛型参数
  */
-function someFn3(callback: <T>(id: T) => void): void {
+function someFn9(callback: <T>(id: T) => void): void {
   callback(123);
 }
 
-someFn3((id) => {
-  console.log(`Hello ${id}!`);
+someFn9((id) => {
+  console.log(`Id is ${id}!`);
 });
 
 /*
   闭包
  */
-function someFn4() {
-  return function () {
-    console.log('Hello World!');
+function someFn10() {
+  return function (msg: string) {
+    console.log(msg);
   };
 }
 
-someFn4()();
+const msg = 'Hello World!';
+someFn10()(msg);
