@@ -1,3 +1,6 @@
+/*
+  将函数转为后台执行
+ */
 async function mainAsync(): Promise<number> {
   const save = async () => {
     await delay(2000);
@@ -37,3 +40,12 @@ function delay(ms = 1): Promise<void> {
 }
 
 mainAsync().then((id) => console.log(`id = ${id}`));
+
+/*
+  返回异步结果
+ */
+function hasPermission(): Promise<boolean> {
+  return Promise.resolve(true);
+}
+
+hasPermission().then((accept) => console.log(accept));
