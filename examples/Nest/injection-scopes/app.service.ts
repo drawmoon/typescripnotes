@@ -1,6 +1,6 @@
 import { Inject, Injectable, Scope } from '@nestjs/common';
 import { REQUEST } from '@nestjs/core';
-import { Request } from 'supertest';
+import { Request } from 'express';
 import { UserAccessor } from './user.accessor';
 
 @Injectable(/*{ scope: Scope.DEFAULT }*/)

@@ -1,5 +1,5 @@
 import { Controller, Get, Req } from '@nestjs/common';
-import { Request } from 'supertest';
+import { Request } from 'express';
 import { AppService } from './app.service';
 import { ScopeService } from './scope.service';
 
