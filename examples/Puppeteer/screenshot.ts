@@ -15,11 +15,11 @@ async function main() {
     });
 
     // 你可以保存文件到指定位置
-    await page.screenshot({ path: 'dist/example.png', type: 'png' });
+    await page.screenshot({ path: 'example.png', type: 'png' });
 
     // 也可以得到一个二进制数据
     const buf = await page.screenshot({ encoding: 'binary', type: 'png' });
-    writeFileSync('dist/example1.png', buf);
+    writeFileSync('example1.png', buf);
   } finally {
     await page.close();
   }

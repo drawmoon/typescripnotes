@@ -15,11 +15,11 @@ async function main() {
     });
 
     // 你可以保存文件到指定位置
-    await page.pdf({ path: 'dist/example.pdf', format: 'A4' });
+    await page.pdf({ path: 'example.pdf', format: 'A4' });
 
     // 也可以得到一个二进制数据
     const buf = await page.pdf({ format: 'A4' });
-    writeFileSync('dist/example1.pdf', buf);
+    writeFileSync('example1.pdf', buf);
   } finally {
     await page.close();
   }
