@@ -1,0 +1,33 @@
+{
+  "name": "hey-typescript",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "rimraf dist & tsc",
+    "lint": "eslint \\\"**/*.ts\\\" --fix"
+  },
+  "author": "drsh",
+  "license": "",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/koa": "^2.13.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/node": "^15.3.0",
+    "@types/puppeteer": "^5.4.4",
+    "prettier": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.1.2",
+    "@nestjs/core": "^8.1.2",
+    "@nestjs/platform-express": "^8.1.2",
+    "express": "^4.17.1",
+    "koa": "^2.13.1",
+    "koa-router": "^10.0.0",
+    "puppeteer": "5.2.1",
+    "puppeteer-cluster": "^0.22.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0"
+  }
+}
