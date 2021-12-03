@@ -1,22 +1,22 @@
 /*
-  基本语法
+  函数声明
  */
 function someFn(): void {
-  // ...
+
 }
 
 /*
-  声明参数
+  函数的参数声明
  */
 function someFn2(args: string[], force: boolean): void {
-  // ...
+
 }
 
 /*
   剩余参数
  */
 function someFn3(...args: string[]): void {
-  // ...
+
 }
 
 someFn3('a1', 'a2', 'a3');
@@ -25,23 +25,19 @@ someFn3('a1', 'a2', 'a3');
   匿名函数
  */
 const someFn4 = function () {
-  console.log('Hello World!');
-};
 
-someFn4();
+};
 
 /*
   箭头函数
  */
 const someFn5 = () => {
-  console.log('Hello World!');
-};
 
-someFn5();
+};
 
 // 箭头函数中的泛型参数
 const someFn6 = <T>(id: T) => {
-  // ...
+
 };
 
 /*
@@ -59,7 +55,7 @@ someFn7(callbackFn);
 // 匿名回调函数
 someFn7(function () {
   console.log('Hello World!');
-})
+});
 
 // 箭头回调函数
 someFn7(() => {
