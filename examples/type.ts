@@ -22,17 +22,17 @@ class Bar {
   }
 }
 
-const f = new Foo();
-const b = new Bar();
+const foo = new Foo();
+const bar = new Bar();
 
-console.log(typeof f, typeof b); // object, object
-console.log(f instanceof Foo, b instanceof Bar); // true, true
+console.log(typeof foo, typeof bar); // object, object
+console.log(foo instanceof Foo, bar instanceof Bar); // true, true
 
 function isFoo(o: Foo | Bar) {
   console.log(o instanceof Foo);
 }
 
-isFoo(f); // true
+isFoo(foo); // true
 
 /*
   接口类型判断
