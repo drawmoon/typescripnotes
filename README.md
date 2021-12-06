@@ -1,54 +1,37 @@
 # Hey TypeScript
 
-- [安装与依赖包管理](#安装与依赖包管理)
+- [安装](#安装)
 - [函数](#函数)
 - [为模块扩展属性与方法](#为模块扩展属性与方法)
 - [利用匿名函数消除过多 if-else 的方法](#利用匿名函数消除过多-if-else-的方法)
 - [语法与风格检查](#语法与风格检查)
+- [依赖包管理](#依赖包管理)
 
-## 安装与依赖包管理
+## 安装
 
-### 安装
+**Windows**
 
-### Windows
+在 [Node 官网](https://nodejs.org/) 下载安装程序，然后使用默认配置安装 NodeJs
 
-去 [官网](https://nodejs.org/) 下载对应的 NodeJs 安装文件，然后安装。执行以下命令安装 TypeScript 编译器：
+接下来执行以下命令安装 TypeScript 编译器：
 
 ```bash
 npm install -g typescript
 ```
 
-#### Ubuntu
+**Ubuntu**
 
 执行以下命令安装 NodeJs 与 Npm：
 
 ```bash
+apt update
 apt install nodejs npm
 ```
 
-执行以下命令安装 TypeScript 编译器：
+接下来执行以下命令安装 TypeScript 编译器：
 
 ```bash
 npm install -g typescript
-```
-
-### 依赖包管理
-
-安装
-
-```bash
-npm install -g npm-check
-```
-
-升级项目中的依赖包，在项目的 `package.json` 所在的目录下执行 `npm-check -u`，然后会在终端中显示如以下所示的命令行图形界面，按上下键可以移动选择，空格选中或取消选中，按回车键后启动更新：
-
-```bash
-? Choose which packages to update. (Press <space> to select)
-
- Minor Update New backwards-compatible features.
->( ) typescript devDep  4.0.6  ❯  4.2.3  https://www.typescriptlang.org/
-
- Space to select. Enter to start upgrading. Control-C to cancel.
 ```
 
 ## 函数
@@ -368,3 +351,32 @@ module.exports = {
   }
 }
 ```
+
+## 依赖包管理
+
+使用 `npm-check` 升级项目中的依赖包，在项目的 `package.json` 所在的目录下执行以下命令：
+
+使用 `npx`：
+
+```bash
+npx npm-check -u
+```
+
+或执行 `npm install -g npm-check` 将 `npm-check` 安装到系统全局后再执行：
+
+```bash
+npm-check -u
+```
+
+等待工具检查依赖完毕后，会输出可以更新的依赖，按照推荐和谨慎来分开显示；按上下键可以移动选择，空格选中或取消选中，按下回车键后启动更新：
+
+```bash
+? Choose which packages to update. (Press <space> to select)
+
+ Minor Update New backwards-compatible features.
+>( ) typescript devDep  4.0.6  ❯  4.2.3  https://www.typescriptlang.org/
+
+ Space to select. Enter to start upgrading. Control-C to cancel.
+```
+
+> 执行 `npm-check -u -g` 可以对系统全局的依赖进行升级
