@@ -9,7 +9,7 @@ function readFile(path: string, callback :(err: Error, data: Buffer) => void): v
   }, 2000);
 }
 
-readFile('../examples/assets/text.txt', (err, data) => {
+readFile('assets/text.txt', (err, data) => {
   if (err) {
     console.error(err.message);
   } else {
@@ -27,7 +27,7 @@ function readFileAsync(path: string): Promise<Buffer> {
   });
 }
 
-readFileAsync('../examples/assets/text.txt')
+readFileAsync('assets/text.txt')
   .then((data) => {
     console.log(data.toString('utf-8'));
   })
