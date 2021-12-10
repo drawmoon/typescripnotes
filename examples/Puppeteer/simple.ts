@@ -14,6 +14,8 @@ async function main() {
     });
 
     console.log('Went to:', page.url());
+
+    await new Promise((r) => setTimeout(r, 2000));
   } finally {
     await page.close();
   }
