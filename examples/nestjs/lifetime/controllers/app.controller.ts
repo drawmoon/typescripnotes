@@ -1,6 +1,6 @@
 import { Controller, Get, Scope } from '@nestjs/common';
-import { ScopeService } from './scope.service';
-import { TransientService } from './transient.service';
+import { ScopeService } from '../services/scope.service';
+import { TransientService } from '../services/transient.service';
 
 // 在 NestJs 的服务容器中，对象被构建时，有三种生命周期，分别是：
 // 1. Default: 在整个应用中只会被构建一次，在应用启动时被构建

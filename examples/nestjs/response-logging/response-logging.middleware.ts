@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { Logger } from '@nestjs/common';
 
-function responseLoggingMiddleware(
+export function responseLoggingMiddleware(
   req: Request,
   res: Response,
   next: NextFunction,
@@ -19,5 +19,3 @@ function responseLoggingMiddleware(
 
   next();
 }
-
-export { responseLoggingMiddleware };
