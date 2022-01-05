@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "shx rm -rf dist & tsc & shx cp -r examples/assets dist/assets",
-    "format": "prettier --write \"examples/**/*.ts\""
+    "lint": "eslint . --ext .ts"
   },
   "author": "drsh",
   "license": "",
@@ -14,7 +14,9 @@
     "@types/koa-router": "^7.4.4",
     "@types/node": "^15.3.0",
     "@types/puppeteer": "^5.4.4",
-    "prettier": "^2.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
     "shx": "^0.3.3",
     "ts-node": "^9.1.1",
     "typescript": "4.2.4"
