@@ -1,6 +1,4 @@
-# Hey TypeScript
-
-TypeScript 入门。
+# Hey TypeScript :wave:
 
 ## Usage
 
