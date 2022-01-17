@@ -4,7 +4,7 @@
 
 ## 在线浏览
 
-[unruffled-hoover-edf5dc.netlify.app/](unruffled-hoover-edf5dc.netlify.app/)
+- [Netlify App](https://heytypescript.netlify.app/)
 
 ## 本地浏览
 
