@@ -1,78 +1,83 @@
-/*
-    数组的声明
- */
-const someWordArr = ['Hello', 'World'];
-const someNameArr = new Array(6);
-someNameArr[0] = 'George';
-someNameArr[1] = 'John';
-someNameArr[2] = 'Thomas';
-someNameArr[3] = 'James';
-someNameArr[4] = 'Adrew';
-someNameArr[5] = 'Martin';
+// 数组的声明
+const arr1 = ['Hello', 'World'];
+console.log(arr1); // ['Hello', 'World']
 
-console.log(someWordArr, someNameArr);
+const arr2 = new Array(2);
+arr2[0] = 'Hello';
+arr2[1] = 'World';
+console.log(arr2); // [ 'Hello', 'World' ]
 
-/*
-    获取指定索引处的元素，超出范围时返回 undefined
- */
-console.log(someNameArr[0], someNameArr[-1], someNameArr[6]);
 
-/*
-    拼接数组中的元素为字符串
- */
-console.log(someWordArr.join(', '));
+// 获取指定索引处的元素；超出范围时返回 undefined
+const arrName = ['Abubakr', 'Esparza', 'Veronica'];
 
-/*
-    提取指定开始索引到结束索引之间的元素
- */
-console.log(someNameArr.slice(0, 3)); // [ 'George', 'John', 'Thomas' ]
-console.log(someNameArr.slice(0, -2)); // [ 'George', 'John', 'Thomas', 'James' ]
+console.log(arrName[0]); // Abubakr
+console.log(arrName[-1]); // undefined
+console.log(arrName[3]); // undefined
 
-/*
-    删除并返回最后一个元素
- */
-const pop = someNameArr.pop();
-console.log(pop, someNameArr);
 
-/*
-    去重
- */
-const someNumberArr = [1, 1, 2, 2];
-console.log(Array.from(new Set(someNumberArr)));
+// 拼接数组中的元素为字符串
+const arrWords = ['Hello', 'World'];
 
-/*
-    排序
- */
-let someNumberArr2 = [55, 1, 12, 7, 8];
-// 升序
-someNumberArr2 = someNumberArr2.sort((a, b) => {
-  return a > b ? 1 : -1;
-});
-console.log(someNumberArr2);
-// 降序
-someNumberArr2 = someNumberArr2.sort((a, b) => {
-  return a < b ? 1 : -1;
-});
-console.log(someNumberArr2);
+console.log(arrWords.join(', ')); // Hello, World
 
-/*
-    反转数组
- */
 
-const someNumberArr3 = [1, 2, 3, 4, 5];
-console.log(someNumberArr3.reverse());
+// 提取指定开始索引到结束索引之间的元素
+const arrName2 = ['George', 'John', 'Thomas', 'James', 'Adrew', 'Martin'];
 
-/*
-    合并、并集、交集、差集
- */
-const someArr1 = [1, 2, 3];
-const someArr2 = [2, 3, 4];
+console.log(arrName2.slice(0, 3)); // [ 'George', 'John', 'Thomas' ]
+console.log(arrName2.slice(0, -2)); // [ 'George', 'John', 'Thomas', 'James' ]
+
+
+// 移除数组元素
+const arrStr = ['A', 'B', 'C', 'D'];
+
+delete arrStr[1];
+console.log(arrStr); // [ 'A', 'C', 'D' ]
+
+// 移除并返回数组的第一个元素
+console.log(arrStr.shift()); // A
+
+// 删除并返回数组的最后一个元素
+console.log(arrStr.pop()); // D
+
+
+// 去重
+const arrStr2 = [1, 1, 'A', 'A'];
+console.log(Array.from(new Set(arrStr2))); // [ 1, 'A' ]
+
+
+// 排序
+const arrAnomalyDigit = [55, 1, 12, 7, 8];
+
+console.log(arrAnomalyDigit.sort((a, b) => a > b ? 1 : -1)); // [ 1, 7, 8, 12, 55 ]
+console.log(arrAnomalyDigit.sort((a, b) => a < b ? 1 : -1)); // [ 55, 12, 8, 7, 1 ]
+
+
+// 反转数组
+const arrNum = [1, 2, 3, 4, 5];
+console.log(arrNum.reverse());
+
+
+// 合并、并集、交集、差集
+const arrLeft = [1, 2, 3];
+const arrRigth = [2, 3, 4];
 
 // 合并
-console.log([...someArr1, ...someArr2]);
+console.log([...arrLeft, ...arrRigth]); // [ 1, 2, 3, 2, 3, 4 ]
 // 并集
-console.log(Array.from(new Set([...someArr1, ...someArr2])));
+console.log(Array.from(new Set([...arrLeft, ...arrRigth]))); // [ 1, 2, 3, 4 ]
 // 交集
-console.log(someArr1.filter((x) => someArr1.includes(x)));
+console.log(arrLeft.filter((x) => arrLeft.includes(x))); // [ 1, 2, 3 ]
 // 差集
-console.log(someArr1.filter((x) => !someArr2.includes(x)));
+console.log(arrLeft.filter((x) => !arrRigth.includes(x))); // [ 1 ]
+
+
+// 求和
+const arrDigit = [50, 20, 30];
+console.log(arrDigit.reduce((a, b) => a + b)); // 100
+
+
+// 所有元素满足条件
+const arrStatus = [true, false, true];
+console.log(arrStatus.every((x) => x)); // false
