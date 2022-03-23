@@ -1,26 +1,24 @@
-/*
-  使用正则表达式匹配指定字符串
- */
-const somePattern =
-  /^[前后]?(?<digit>[0-9零一二两三四五六七八九十])个?(?:[年月日]|星期|季度)以?[前后]?$/;
+// 使用正则表达式匹配指定字符串
 
-const inputText = '前两个星期';
-
-// 返回一个 Boolean，指示该字符串是否匹配成功
-console.log(somePattern.test(inputText));
+// 返回一个 Boolean 值，指示该字符串是否匹配成功
+const result = /,/gm.test('hello, world');
+console.log(result); // true
 
 // 对指定字符串进行搜索，返回搜索结果的数组
-const execArr = somePattern.exec(inputText);
-console.log(execArr[1]);
+const pattern1 = /a+/gm;
 
-/*
-  将匹配到的分组的值替换为新的值
- */
-const somePattern2 = /<[^>]*=(?<stain>3D)+\"\S+\"\s*\/?>/g;
+let arr;
+while ((arr = pattern1.exec('a,aaaaaaaabc')) != null) {
+  console.log(arr);
+}
+// ["a", index: 0, input: "a,aaaaaaaabc", groups: undefined]
+// [ 'aaaaaaaa', index: 2, input: 'a,aaaaaaaabc', groups: undefined ]
 
-const html =
-  '<figure class=3D"image"><img src=3D"file:///C:/fake/image0.png"> <figcaption>3D图形</figcaption>';
-const rst = html.replace(somePattern2, (sub, stain) => {
+
+// 将匹配到的分组的值替换为新的值
+const pattern2 = /<[^>]*=(?<stain>3D)+\"\S+\"\s*\/?>/g;
+
+const html = '<figure class=3D"image"><img src=3D"file:///C:/fake/image0.png"> <figcaption>3D图形</figcaption>'.replace(pattern2, (sub, stain) => {
   return sub.replace(stain, '');
 });
-console.log(rst);
+console.log(html); // <figure class="image"><img src="file:///C:/fake/image0.png"> <figcaption>3D图形</figcaption>
