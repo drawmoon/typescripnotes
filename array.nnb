@@ -1,0 +1,558 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## 数组的声明\r\n\r\n`: string[]` 指定变量的类型，`string[]` 表示为字符串数组\r\n\r\n当数组中元素的类型与数组的类型不一致时，编译器则会输出错误：\r\n\r\n```typescript\r\nconst arr: string[] = [1]; // 不能将类型“number”分配给类型“string”。\r\n```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 声明一个字符串数组变量\r\n\r\nconst strArr: string[] = ['Hello', 'World'];\r\n\r\nconsole.log(strArr);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'Hello', 'World' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 声明一个数字数组变量\r\n\r\nconst digitArr: number[] = [1, 100, 0, -1];\r\n\r\nconsole.log(digitArr);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 100, 0, -1 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 声明一个联合类型数组变量\r\n\r\nconst unionTypesArr: (string | number)[] = ['Hello', 123];\r\n\r\nconsole.log(unionTypesArr);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'Hello', 123 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 获取指定索引处的元素"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const fruits: string[] = ['Apple', 'Orange'];\r\n\r\nconst apple = fruits[0];\r\n\r\nconsole.log(apple);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Apple",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 提取指定开始索引到结束索引之间的元素\r\n\r\nconst listOfNames: string[] = ['George', 'John', 'Thomas', 'James', 'Adrew', 'Martin'];\r\n\r\nconst names = listOfNames.slice(0, 3);\r\n\r\nconsole.log(names);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'George', 'John', 'Thomas' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const names = listOfNames.slice(0, -2);\r\n\r\nconsole.log(names);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'George', 'John', 'Thomas', 'James' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 超出范围则返回 undefined\r\n\r\nconst element1 = fruits[-1];\r\nconst element2 = fruits[100];\r\n\r\nconsole.log(element1, element2);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "undefined undefined",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 将数组转换为字符串"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const fruits: string[] = ['Apple', 'Orange'];\r\n\r\nconst str = fruits.join(', ');\r\n\r\nconsole.log(str);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Apple, Orange",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 移除数组元素"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const fruits: string[] = ['Apple', 'Orange', 'Pear', 'Mango'];\r\n\r\ndelete fruits[1];\r\n\r\nconsole.log(fruits);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'Apple', <1 empty item>, 'Pear', 'Mango' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 移除并返回数组的第一个元素\r\n\r\nconst first = fruits.shift();\r\n\r\nconsole.log(first);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Apple",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 删除并返回数组的最后一个元素\r\n\r\nconst last = fruits.pop();\r\n\r\nconsole.log(last);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Mango",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 去除重复的数组元素"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const same: (number | string)[] = [1, 1, 'A', 'A'];\r\n\r\nconst elements = Array.from(new Set(listOfNames));\r\n\r\nconsole.log(names);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'George', 'John', 'Thomas', 'James' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 数据元素排序"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "let sorted: number[] = [1, 7, 8, 12, 55];"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 乱序\r\n\r\nsorted = sorted.sort(() => Math.random() - 0.5);\r\n\r\nconsole.log(sorted);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 55, 12, 8, 7, 1 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 升序\r\n\r\nsorted = sorted.sort((a, b) => a > b ? 1 : -1);\r\n\r\nconsole.log(sorted);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 7, 8, 12, 55 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 降序\r\n\r\nsorted = sorted.sort((a, b) => a < b ? 1 : -1);\r\n\r\nconsole.log(sorted);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 55, 12, 8, 7, 1 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 反转数组\r\n\r\nconst reversed = sorted.reverse();\r\n\r\nconsole.log(reversed);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 7, 8, 12, 55 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 组合、并集、交集、差集"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const arr1: number[] = [1, 2, 3];\r\nconst arr2: number[] = [2, 3, 4];"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 组合\r\n\r\nconst merged = [...arr1, ...arr2];\r\n\r\nconsole.log(merged);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 2, 3, 2, 3, 4 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 并集\r\n\r\nconst list = Array.from(new Set([...arr1, ...arr2]));\r\n\r\nconsole.log(list);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 2, 3, 4 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 交集\r\n\r\nconst list = arr1.filter((x) => arr1.includes(x));\r\n\r\nconsole.log(list);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 2, 3 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 差集\r\n\r\nconst list = arr1.filter((x) => !arr2.includes(x));\r\n\r\nconsole.log(list);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 求和\r\n\r\nconst digitArr: number[] = [50, 20, 30];\r\n\r\nconst sum = digitArr.reduce((a, b) => a + b);\r\n\r\nconsole.log(sum);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "100",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// 所有元素满足条件\r\n\r\nconst boolArr: boolean[] = [true, false, true];\r\n\r\nconsole.log(boolArr.every((x) => x));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "false",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## 组合数组中的数组"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const arr: string[][] = [['a'], ['b', 'c'], ['d']];\r\n\r\nconst merged = [].concat(...arr);\r\n\r\nconsole.log(merged);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'a', 'b', 'c', 'd' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
