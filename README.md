@@ -1,1 +1,1 @@
-# Hey TypeScript :wave:
+# typescripnotes
