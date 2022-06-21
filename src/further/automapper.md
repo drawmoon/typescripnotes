@@ -44,39 +44,33 @@ export class UserDto {
 }
 ```
 
-实现 `MappingProfile` 接口，创建 `User` 与 `UserDto` 的映射关系：
+创建映射关系：
 
 ```typescript
-import { CamelCaseNamingConvention, MappingProfile } from '@automapper/core';
-import { UserDto } from './user.dto';
+import { UserDTO } from './user.dto';
 import { User } from './user';
+import { mapFrom, createMap, forMember, MappingProfile } from '@automapper/core';
 
-export const UserProfile: MappingProfile = (mapper) => {
-  mapper.createMap(User, UserDto, {
-    namingConventions: {
-      source: new CamelCaseNamingConvention(),
-      destination: new CamelCaseNamingConvention(),
-    }
-  });
-}
+export const userProfile: MappingProfile = (mapper) => {
+  createMap(mapper, User, UserDTO);
+};
 ```
 
-初始化 `Mapper` 对象，并将刚刚创建的 `UserProfile` 对象添加到 `Mapper` 中：
+创建 `Mapper`，并将 `userProfile` 对象添加到 `Mapper`：
 
 ```typescript
 import { classes } from '@automapper/classes';
-import { createMapper } from '@automapper/core';
-import { UserProfile } from './mapper-profile';
+import { addProfile, createMapper } from '@automapper/core';
+import { userProfile } from './mapper-profile';
 
-export const Mapper = createMapper({
-  name: 'userMapper',
-  pluginInitializer: classes,
+export const mapper = createMapper({
+  strategyInitializer: classes(),
 });
 
-Mapper.addProfile(UserProfile);
+addProfile(mapper, userProfile);
 ```
 
-现在可以使用 `Mapper` 对象提供方法实现对象与对象的转换：
+现在可以使用 `Mapper` 接口提供的方法实现对象与对象的转换：
 
 ```typescript
 const users: User[] = [
@@ -88,7 +82,7 @@ const users: User[] = [
     password: '123456',
   }
 ];
-return Mapper.mapArray(users, UserDto, User);
+return mapper.mapArray(users, User, UserDto);
 ```
 
 ## 自定义映射规则
@@ -96,20 +90,19 @@ return Mapper.mapArray(users, UserDto, User);
 通过 `forMember` 方法自定义配置属性的映射规则：
 
 ```typescript
-import { CamelCaseNamingConvention, MappingProfile, mapFrom } from '@automapper/core';
-import { UserDto } from './user.dto';
+import { UserDTO } from './user.dto';
 import { User } from './user';
+import { mapFrom, createMap, forMember, MappingProfile } from '@automapper/core';
 
-export const UserProfile: MappingProfile = (mapper) => {
-  mapper
-    .createMap(User, UserDto, {
-      namingConventions: {
-        source: new CamelCaseNamingConvention(),
-        destination: new CamelCaseNamingConvention(),
-      }
-    })
-    .forMember(
-      (destination) => destination.fullName, 
-      mapFrom((source) => source.firstName + source.lastName));
-}
+export const userProfile: MappingProfile = (mapper) => {
+  createMap(
+    mapper,
+    User,
+    UserDTO,
+    forMember(
+      (destination) => destination.fullName,
+      mapFrom((source) => source.firstName + source.lastName)
+    ),
+  );
+};
 ```

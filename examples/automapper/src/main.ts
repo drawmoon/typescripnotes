@@ -1,9 +1,9 @@
-import { Mapper } from './mapper';
+import { mapper } from './mapper';
 import { User } from './user';
 import { UserDTO } from './user.dto';
 
 // 对象映射
-const user = {
+const user: User = {
   id: 1,
   firstName: 'hu',
   lastName: 'hongqi',
@@ -11,11 +11,21 @@ const user = {
   password: '123456',
 };
 
-const userDto = Mapper.map(user, UserDTO, User);
+const userDto = mapper.map(user, User, UserDTO);
 console.log(userDto);
 
 // 数组对象映射
 const users: User[] = [user];
 
-const userDtoList = Mapper.mapArray(users, UserDTO, User);
+const userDtoList = mapper.mapArray(users, User, UserDTO);
 console.log(userDtoList);
+
+// 在旧的版本中
+// const userDto = mapper.map(user, UserDTO, User);
+// console.log(userDto);
+
+// // 数组对象映射
+// const users: User[] = [user];
+
+// const userDtoList = mapper.mapArray(users, UserDTO, User);
+// console.log(userDtoList);

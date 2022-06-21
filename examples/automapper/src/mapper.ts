@@ -1,10 +1,19 @@
 import { classes } from '@automapper/classes';
-import { createMapper } from '@automapper/core';
-import { UserProfile } from './mapper-profile';
+import { addProfile, createMapper } from '@automapper/core';
+import { userProfile } from './mapper-profile';
 
-export const Mapper = createMapper({
-  name: 'userMapper',
-  pluginInitializer: classes,
+export const mapper = createMapper({
+  strategyInitializer: classes(),
 });
 
-Mapper.addProfile(UserProfile);
+addProfile(mapper, userProfile);
+
+// 在旧的版本中
+// import { UserProfile } from './mapper-profile';
+//
+// export const mapper = createMapper({
+//   name: 'userMapper',
+//   pluginInitializer: classes,
+// });
+
+// mapper.addProfile(UserProfile);
